@@ -10,12 +10,18 @@ import {RouterModule} from '@angular/router';
 
 import {firebaseConfig} from "../environments/firebase.config";
 import {AngularFireDatabaseModule} from "@angular/fire/database";
+import { EventBusExperimentsComponent } from './event-bus-experiments/event-bus-experiments.component';
+import { LessonsListComponent } from './lessons-list/lessons-list.component';
+import { LessonsCounterComponent } from './lessons-counter/lessons-counter.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         BrowserEventExperimentsComponent,
+        EventBusExperimentsComponent,
+        LessonsListComponent,
+        LessonsCounterComponent,
     ],
     imports: [
         BrowserModule,
