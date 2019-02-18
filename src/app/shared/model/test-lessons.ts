@@ -1,6 +1,6 @@
 import {Lesson} from "./lesson";
 
-export const lessons: Lesson[] = [
+export const testLessons: Lesson[] = [
   {
     id: 1,
     description: 'Setting up and Angular Development',
@@ -16,4 +16,4 @@ export const lessons: Lesson[] = [
     description: 'Build Your First App - Hello World Step By Step',
     duration: '9:00'
   }
-]
+];
