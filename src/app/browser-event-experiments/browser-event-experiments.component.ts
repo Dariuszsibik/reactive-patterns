@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {fromEvent, Subscription} from 'rxjs';
 
 @Component({
   selector: 'browser-event-experiments',
@@ -8,30 +7,37 @@ import {fromEvent, Subscription} from 'rxjs';
 })
 export class BrowserEventExperimentsComponent implements OnInit {
 
-  hoverSection: HTMLElement;
+    hoverSection: HTMLElement;
+
 
   ngOnInit() {
 
-    this.hoverSection = document.getElementById('hover');
+      this.hoverSection = document.getElementById('hover');
 
-    this.hoverSection.addEventListener('mousemove', onMouseMove)
+      this.hoverSection.addEventListener('mousemove', onMouseMove);
+
+      this.hoverSection.addEventListener('click', onClick);
+
 
   }
 
-  unsubscribe() {
-    console.log('Called unsubscribe()');
+    unsubscribe() {
+      console.log('Called unsubscribe()');
 
-    this.hoverSection.removeEventListener('mousemove', onMouseMove)
-  }
+      this.hoverSection.removeEventListener('mousemove',onMouseMove);
 
+    }
 
 }
+
+function onClick(ev: Event) {
+    console.log("click", ev);
+}
+
 
 function onMouseMove(ev: MouseEvent) {
-  console.log(ev);
+    console.log("mousemove",ev);
 }
-
-
 
 
 
