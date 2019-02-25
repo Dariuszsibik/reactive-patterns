@@ -37,8 +37,8 @@ export class LessonsListComponent implements Observer {
     }
 
     delete(deleted:Lesson) {
-      _.remove(this.lessons,
-          lesson => lesson.id === deleted.id )
+        _.remove(this.lessons,
+            lesson => lesson.id === deleted.id )
     }
 
 

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {globalEventBus, LESSONS_LIST_AVAILABLE, ADD_NEW_LESSON} from "./event-bus";
 import {testLessons} from "../shared/model/test-lessons";
-import { Lesson } from 'app/shared/model/lesson';
+import {Lesson} from "../shared/model/lesson";
 
 @Component({
     selector: 'event-bus-experiments',
@@ -10,7 +10,7 @@ import { Lesson } from 'app/shared/model/lesson';
 })
 export class EventBusExperimentsComponent implements OnInit {
 
-    lessons: Lesson[] = [];
+    private lessons: Lesson[] = [];
 
     ngOnInit() {
 
@@ -21,15 +21,16 @@ export class EventBusExperimentsComponent implements OnInit {
         globalEventBus.notifyObservers(LESSONS_LIST_AVAILABLE,
             this.lessons);
 
-            setTimeout(() => {
+        setTimeout(() => {
 
-                this.lessons.push({
-                    id: Math.random(),
-                    description: 'New Lesson arriving from the backend'
-                });
+            this.lessons.push({
+                id: Math.random(),
+                description: 'New lesson arriving from the backend'
+            });
 
-                globalEventBus.notifyObservers(LESSONS_LIST_AVAILABLE, this.lessons)
-            }, 10000);
+            globalEventBus.notifyObservers(LESSONS_LIST_AVAILABLE, this.lessons);
+
+        }, 10000);
 
     }
 
